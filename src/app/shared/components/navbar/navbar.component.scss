@@ -1,0 +1,18 @@
+
+.header{
+    background-color: #1f1f32;
+    padding: 6px 10px;
+}
+
+.brand{
+    width: 70px;
+    display: inline-block;
+    .logo{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.dark{
+    background-color: #1f1f32;
+}
