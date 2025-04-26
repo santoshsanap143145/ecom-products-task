@@ -154,15 +154,22 @@
   <div style="border-top: 3px solid #ff0000; border-bottom: 3px solid #ff0000;" class="col-md-12">
     <mat-tab-group class="mb-5" mat-align-tabs="start">
       <mat-tab label="Product Details">
-        <p class="text-secondary p-4">{{ product.product_details }}</p>
+        <p *ngIf="product.product_details;else nodetails" class="text-secondary p-4">{{ product.product_details }}</p>
+        <ng-template #nodetails>
+          <p class="text-secondary mt-5">No product details is available currently</p>
+        </ng-template>
       </mat-tab>
       <mat-tab class="text-secondary p-4" label="Specifications"
-        ><ul class="list-group border-0">
+        ><ul class="list-group border-0" *ngIf="product.product_specifications;else noSpec">
           <li class="list-group-item" *ngFor="let spec of product.product_specifications">
             <strong>{{ spec.specification_name }}</strong
             >: {{ spec.specification_value }}
           </li>
-        </ul></mat-tab
+        </ul>
+        <ng-template #noSpec>
+          <p class="text-secondary mt-5">No product Specification is available currently</p>
+        </ng-template>
+        </mat-tab
       >
     </mat-tab-group>
   </div>
