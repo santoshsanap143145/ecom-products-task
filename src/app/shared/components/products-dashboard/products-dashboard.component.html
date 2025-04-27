@@ -1,3 +1,6 @@
+
+<!-- 
+[routerLink]="prod._id" -->
 <div class="container">
   <div class="row" *ngIf="productsArr.length > 0; else noProducts">
     <div class="col-sm-3 mb-5" *ngFor="let prod of productsArr">
@@ -9,17 +12,31 @@
         [routerLink]="prod._id"
       >
         <div class="prodImg">
-          <img
-            [src]="prod.images[0]"
-            class="main-img"
-            alt="Product"
-          />
+          <img [src]="prod.images[0]" class="main-img" alt="Product" />
           <img
             [src]="prod.images[1]"
             class="hover-img"
             [class.show]="hoveredProductId === prod._id"
             alt="Product Hover"
           />
+          <div class="hoverIcons">
+            <button mat-mini-fab matTooltip="Add to Cart" matTooltipPosition="left">
+              <mat-icon>shopping_bag</mat-icon>
+            </button>
+            <button
+              mat-mini-fab
+              matTooltip="View details"
+              matTooltipPosition="left"
+            >
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Add favorite" matTooltipPosition="left">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Compare" matTooltipPosition="left">
+              <mat-icon>shuffle</mat-icon>
+            </button>
+          </div>
         </div>
         <div class="card-body">
           <h4 class="card-subtitle m-0 text-secondary">
@@ -36,7 +53,9 @@
     </div>
   </div>
   <ng-template #noProducts>
-    <p *ngIf="!loading" class="alert alert-info">No Products Available Currently</p>
+    <p *ngIf="!loading" class="alert alert-info">
+      No Products Available Currently
+    </p>
   </ng-template>
   <div class="d-flex justify-content-center align-items-center" *ngIf="loading">
     <mat-spinner color="accent"></mat-spinner>

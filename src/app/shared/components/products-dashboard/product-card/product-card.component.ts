@@ -39,10 +39,6 @@ export class ProductCardComponent implements OnInit, OnDestroy {
 
   }
 
-  selectImage(img: string) {
-    this.selectedImg = img;
-  }
-
   getStarFill(index: number): string {
     const fullStars = Math.floor(this.rating);
     const partial = this.rating - fullStars;

@@ -11,7 +11,7 @@
       <div
         class="imgGroup"
         *ngFor="let img of product.images"
-        (click)="selectImage(img)"
+        (click)="this.selectedImg = img;"
         [class.active]="img === selectedImg"
       >
         <img [src]="img" alt="" />
